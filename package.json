@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "fmt": "prettier --write src/**/*.{ts,tsx}"
   },
   "dependencies": {
@@ -15,9 +15,12 @@
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
     "@types/react-redux": "^7.1.25",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
     "clsx": "^2.0.0",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
