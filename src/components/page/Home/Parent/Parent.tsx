@@ -10,7 +10,7 @@ import Styles from './Parent.module.scss'
 const ParentComponent = () => {
   console.log('親コンポーネント')
   const state = useCounter()
-  const { timer, setTimer, isTimerRunning, setIsTimerRunning } = useTimer()
+  const { timer, setTimer, setIsTimerRunning } = useTimer()
   const [stateA, setStateA] = useState(0)
   const [stateB, setStateB] = useState(0)
 

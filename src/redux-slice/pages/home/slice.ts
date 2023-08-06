@@ -10,7 +10,6 @@ export const homePageSlice = createSlice({
     updateState: (state, action: PayloadAction<HomePageState>) => {
       for (const key in state) {
         if (key in action.payload) {
-          console.log(action.payload)
           // @ts-expect-error 【TODO】型エラー修正する
           state[key] = action.payload[key]
         }
