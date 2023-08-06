@@ -1,0 +1,26 @@
+.body {
+  width: 90%;
+  height: 160px;
+}
+.pink {
+  background-color: rgba(222, 56, 236, 0.5);
+}
+
+.light-green {
+  background-color: rgba(56, 160, 236, 0.5);
+}
+
+.title {
+  position: relative;
+  padding-top: 5px;
+  padding-left: 5px;
+  font-size: 15px;
+  width: fit-content;
+}
+
+.button-assign {
+  margin: 15px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
