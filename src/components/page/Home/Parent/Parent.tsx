@@ -2,23 +2,22 @@ import React from 'react'
 import { useState } from 'react'
 import AlignTwoObject from '@/components/common/AlignTwoObject/AlignTwoObject'
 import { Button } from '@/components/ui-library/Button/Button'
+import useTimer from '@/lib/CustomHooks/useTimer'
 import { useCounter } from '@/store/pages/home/Parent/context'
-import { useTimer, useTimerDisabled } from '@/store/pages/home/state'
-import TimerString from '../../../app/TimerString/TimerString'
 import Child from './Child/Child'
 import ChildMemo from './ChildMemo/ChildMemo'
 import Styles from './Parent.module.scss'
 const ParentComponent = () => {
   console.log('親コンポーネント')
   const state = useCounter()
-  const [timerDisable, setTimerDisable] = useTimerDisabled()
-  const [time, setTime] = useTimer()
+  const [timerDisable, setTimerDisable] = useState(false)
+  const { timer, setTimer } = useTimer()
   const [stateA, setStateA] = useState(0)
   const [stateB, setStateB] = useState(0)
 
   const clickTimer = async () => {
-    setTimerDisable()
-    setTime('initialize')
+    setTimerDisable((state) => !state)
+    setTimer('initialize')
   }
 
   const onClickA = () => {
@@ -40,11 +39,7 @@ const ParentComponent = () => {
         />
         <AlignTwoObject
           leftEle={<Button onClick={clickTimer}>タイマー</Button>}
-          rightEle={
-            <div style={{ display: 'flex' }}>
-              {timerDisable ? 0 : <TimerString time={time} intervalMethod={setTime} />}秒
-            </div>
-          }
+          rightEle={<div style={{ display: 'flex' }}>{timerDisable ? 0 : timer}秒</div>}
         />
         <AlignTwoObject
           leftEle={<Button onClick={onClickA}>ボタンA</Button>}
