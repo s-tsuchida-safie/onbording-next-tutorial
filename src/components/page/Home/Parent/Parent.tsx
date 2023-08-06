@@ -10,13 +10,12 @@ import Styles from './Parent.module.scss'
 const ParentComponent = () => {
   console.log('親コンポーネント')
   const state = useCounter()
-  const [timerDisable, setTimerDisable] = useState(false)
-  const { timer, setTimer } = useTimer()
+  const { timer, setTimer, isTimerRunning, setIsTimerRunning } = useTimer()
   const [stateA, setStateA] = useState(0)
   const [stateB, setStateB] = useState(0)
 
   const clickTimer = async () => {
-    setTimerDisable((state) => !state)
+    setIsTimerRunning((state) => !state)
     setTimer('initialize')
   }
 
@@ -39,7 +38,7 @@ const ParentComponent = () => {
         />
         <AlignTwoObject
           leftEle={<Button onClick={clickTimer}>タイマー</Button>}
-          rightEle={<div style={{ display: 'flex' }}>{timerDisable ? 0 : timer}秒</div>}
+          rightEle={<div style={{ display: 'flex' }}>{timer}秒</div>}
         />
         <AlignTwoObject
           leftEle={<Button onClick={onClickA}>ボタンA</Button>}

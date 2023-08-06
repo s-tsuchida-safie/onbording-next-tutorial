@@ -1,8 +1,10 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import clsx from 'clsx'
 import AlignTwoObject from '@/components/common/AlignTwoObject/AlignTwoObject'
 import { Button } from '@/components/ui-library/Button/Button'
-import { countUp } from '@/redux-slice/appState/counter'
+import { updateState } from '@/redux-slice/pages/home/slice'
+import { RootState } from '@/redux-slice/store'
+import { countUp } from '@/store/pages/home/action'
 import { useCouterDispatch } from '@/store/pages/home/Parent/context'
 import Styles from './Child.module.scss'
 
@@ -15,9 +17,10 @@ const Child = ({ name, state }: ChildComponentProps) => {
   console.log(name)
   const setState = useCouterDispatch()
   const dispatch = useDispatch()
+  const countState = useSelector((state: RootState) => state.homePage)
 
   const reduxClickHandler = () => {
-    dispatch(countUp(1))
+    dispatch(updateState(countUp(countState)))
   }
   const useContextClickHandler = () => {
     setState((prev) => prev + 1)
