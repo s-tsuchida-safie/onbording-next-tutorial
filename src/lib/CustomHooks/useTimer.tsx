@@ -1,6 +1,7 @@
-import { useEffect, useReducer } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 
 const useTimer = () => {
+  const [isTimerRunning, setIsTimerRunning] = useState(false)
   const [timer, setTimer] = useReducer((prev: number, action: string) => {
     switch (action) {
       case 'initialize':
@@ -12,14 +13,17 @@ const useTimer = () => {
     }
   }, 0)
   useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setTimer('count')
-    }, 1000)
+    let intervalId: number
+    if (isTimerRunning) {
+      intervalId = window.setInterval(() => {
+        setTimer('count')
+      }, 1000)
+    }
     return () => {
       window.clearInterval(intervalId)
     }
-  }, [])
-  return { timer, setTimer }
+  }, [isTimerRunning])
+  return { timer, setTimer, isTimerRunning, setIsTimerRunning }
 }
 
 export default useTimer
