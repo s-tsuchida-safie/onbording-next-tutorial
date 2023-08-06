@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './appState/counter'
+import homePageReducer from './pages/home/slice'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    homePage: homePageReducer,
   },
 })
 
