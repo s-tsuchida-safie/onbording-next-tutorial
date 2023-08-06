@@ -1,5 +1,5 @@
-import DefaultLayout from "@/components/layout/DefaultLayout";
-import Home from "@/components/page/Home/Home";
+import DefaultLayout from '@/components/layout/DefaultLayout'
+import Home from '@/components/page/home/Home'
 
 const HomePage = () => {
   return (
@@ -9,4 +9,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage;
+export default HomePage

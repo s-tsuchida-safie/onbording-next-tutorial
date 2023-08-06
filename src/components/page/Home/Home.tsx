@@ -1,17 +1,19 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { countUp } from '@/redux-slice/appState/slice'
-import { Button } from '@/components/ui-library/Button/Button'
+
+import ParentComponent from '@/components/page/home/Parent/Parent'
+import { CounterContextProvider } from '@/store/pages/home/Parent/context'
+import Styles from './Home.module.scss'
 
 const Home: React.FC = () => {
-  const dispatch = useDispatch()
-  const clickHandler = () => {
-    dispatch(countUp(1))
-  }
   return (
-    <>
-      <Button onClick={clickHandler}>ボタンA</Button>
-    </>
+    <CounterContextProvider>
+      <div className={Styles['Annotation']}>
+        ※子コンポーネントはレンダリングされるたびにコンソール出力
+      </div>
+      <div className={Styles['Parent']}>
+        <ParentComponent />
+      </div>
+    </CounterContextProvider>
   )
 }
 
