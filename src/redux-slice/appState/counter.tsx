@@ -10,6 +10,6 @@ const counter = createSlice({
   },
 })
 
-export const { countUp } = counter.actions;
+export const { countUp } = counter.actions
 
-export default counter.reducer;
+export default counter.reducer
