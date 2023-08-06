@@ -7,8 +7,6 @@ type ButtonProps = {
 }
 
 export const Button = ({ children, onClick }: ButtonProps) => {
-  console.log('button')
-  console.log(Styles['button-view'])
   return (
     <button className={Styles['button-view']} onClick={onClick}>
       {children}
