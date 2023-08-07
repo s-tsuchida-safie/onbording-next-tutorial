@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import homePageReducer from './pages/home/slice'
+import AppReducer from './app/slice'
 
 export const store = configureStore({
   reducer: {
-    homePage: homePageReducer,
+    app: AppReducer,
   },
 })
 
